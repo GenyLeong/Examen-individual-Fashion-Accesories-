@@ -1,0 +1,32 @@
+section
+  .container-fluid
+    .row
+      span.fa.fa-angle-left
+      span LATEST
+      span BESTSELLER
+      span SALE
+      span.fa.fa-angle-right 
+    .row
+      +col-3
+        +sale("sale1","hola")
+      +col-3
+        +sale("sale1","hola")
+      +col-3
+        +sale("sale1","hola")
+      +col-3
+        +sale("sale1","hola")                        
+section#sponsors.v-center
+  .container
+    .row
+      .col-xs-2
+        +image("images/client1.jpg", '')(class="width")
+      .col-xs-2
+        +image("images/client2.jpg", '')(class="width")
+      .col-xs-2
+        +image("images/client3.jpg", '')(class="width")
+      .col-xs-2
+        +image("images/client4.jpg", '')(class="width")   
+      .col-xs-2
+        +image("images/client5.jpg", '')(class="width") 
+      .col-xs-2
+        +image("images/client6.jpg", '')(class="width")                  

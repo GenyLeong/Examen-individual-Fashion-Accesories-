@@ -1,0 +1,29 @@
+include ../base/mixins.jade
+header#header_area
+ +nav("Default Welcome Message", "dropdown_menu", "fixed")
+  +nav_item( "index.html", "active") Language
+  +nav_item( "about.html") Currency
+  +nav_item( "contact.html") My account
+ div.container
+  div.row
+    +col-4
+      h4.text-center  November 1,2015
+      p.text-muted JANE DOE
+      a(class="fa fa-clock-o fa-3x pull-left")
+    +col-4
+      +image("images/logo.png", '')(class="")
+    +col-4
+      .input-group
+        +field('text', 'name', 'Search')(class="form-control")
+        span.input-group-btn
+          button(class="btn btn-default", type="button")
+            span.glyphicon.glyphicon-search
+section
+  .container
+    .row
+      ul.nav.navbar-nav
+        +nav_item( "index.html", "active") Home
+        +nav_item( "about.html") Contact us
+      span.nav.navbar-nav.pull-right
+        +nav_item( "about.html") Contact us
+

@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,500);
+@mixin margin($mt, $mr, $mb, $ml){
+	margin:{
+		top:$mt;
+		bottom:$mb;
+		right:$mr;
+		left:$ml;
+	}
+}
+
+h4{
+	text-transform: uppercase;
+}
+
+%bg{
+	background-size: cover;
+    min-height: 400px;
+    background-repeat: no-repeat;
+}	
+
+#contact{
+	@extend %bg;
+	background: url('../images/contact.jpg');
+}
+
+.bg-opacity{
+	min-height: 400px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.v-center{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+}
+
+.contact{
+	height: 20rem;
+    width: 40rem;
+    background-color: pink;
+}
+
+.address{
+	color:white;
+}
+
+%input{
+    background-color: gray;
+    height: 42px;	
+}
+
+.text{
+	width: 49.5%;
+	@extend %input;
+}
+
+.phone{
+	width: 100%;
+	@extend %input;
+}
+
+ul {
+	padding: 0px;
+	@include margin(14px, 0px, 0px, 0px);
+li{
+	list-style-type: none;
+}
+}

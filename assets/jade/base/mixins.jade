@@ -1,0 +1,139 @@
+//- Navbar mixins
+mixin nav(name, id, style)
+ - var style = (typeof style === 'undefined') ? "default" : style
+  nav( role="navigation", class=["navbar", "navbar-" + style] )
+   .navbar-header
+    button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#" + id, aria-expanded="false", aria-controls="navbar")
+     span.sr-only Toggle navigation
+     span.icon-bar
+     span.icon-bar
+     span.icon-bar
+    a.navbar-brand(href="http://www.laboratoria.la")= name
+ 
+   .collapse.navbar-collapse( id=id )
+    ul.nav.navbar-nav.navbar-right
+     block
+ 
+mixin nav_item(href, active)
+ li(class=active): a( href=href )
+  block
+ 
+mixin nav_item_dropdown(href, active)
+ li(class=["dropdown", active])
+  a.dropdown-toggle( href=href, data-toggle="dropdown", role="button", aria-expanded="false" )= attributes.label
+   span.caret
+  ul.dropdown-menu( role="menu" )
+   block
+ 
+mixin nav_divider
+ li.divider
+ 
+mixin nav_header
+ li.dropdown-header
+  block
+ 
+//- Button mixin
+mixin button(style, href, size)
+ - var style = (typeof style === 'undefined') ? "default" : style
+  - var href = (typeof href === 'undefined') ? "#" : href
+   case size
+    when "large"
+     - size = "btn-lg"
+    when "small"
+     - size = "btn-sm"
+    when "mini"
+     - size = "btn-xs"
+ 
+   a( class=["btn", "btn-" + style, size], href=href )
+        block
+
+//- Declaration cols
+mixin col-4
+ div.col-md-4.col-sm-4.col-xs-12
+   block
+
+mixin col-6
+ div.col-md-6.col-sm-6.col-xs-12
+   block
+
+mixin list(title, parrafo)
+ div.col-md-4.col-sm-4.col-xs-12
+  div.icon 
+   block
+  +article(title, parrafo)
+   
+mixin link(name)
+ i(class!=attributes.class)= name
+
+mixin article(title, parrafo)
+ h3= title
+ p=parrafo
+
+//- card
+mixin col-3
+ div.col-md-3.col-sm-3.col-xs-12
+  div.card 
+   block
+
+mixin image(src)
+ img(class!=attributes.class, src=src)
+ 
+mixin h4(title, parrafo)
+ h4= title
+ p=parrafo
+ 
+//- our amazing team
+
+- var loremipsum =" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam rerum, id. Hic quisquam similique atque. Alias atque accusantium perspiciatis, totam?"
+
+mixin images-sale(amazing)
+ case amazing
+  when 'sale1'
+   img.team-group(src="images/a1.jpg")
+  when 'sale2'
+   img.team-group(src="images/a1.jpg")
+  when 'sale3'
+   img.team-group(src="images/a1.jpg")
+  when 'sale4'
+   img.team-group(src="images/a1.jpg")
+
+mixin networks()
+ .networks
+  a(href="#").social-circle.fa.fa-facebook
+  a(href="#").social-circle.fa.fa-twitter
+  a(href="#").social-circle.fa.fa-linkedin
+  a(href="#").social-circle.fa.fa-rss
+  a(href="#").social-circle.fa.fa-skype
+  a(href="#").social-circle.fa.fa-dribbble
+
+mixin stars()
+  span(href="#").fa.fa-star
+  span(href="#").fa.fa-star
+  span(href="#").fa.fa-star
+  span(href="#").fa.fa-star-o
+  span(href="#").fa.fa-star-o
+
+mixin sale(amazing, saletitle)
+ .col-sm-4
+  +images-sale(amazing)
+  h4=saletitle
+  +stars()
+
+//-forms
+mixin form
+  form(role="form")
+   .form-group
+    block
+
+mixin field(type, name, placeholder)
+ input(type=type, name=name, placeholder=placeholder, class!=attributes.class)
+
+mixin lista(title)
+  h4=title
+    ul
+      block
+
+mixin li(span)
+  li.fa.fa-caret-right 
+    span=span
+//- Use
